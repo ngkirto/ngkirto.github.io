@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XR RingFit Game · Samuel Ng</title>
+  <meta name="description" content="XR RingFit Game: a yoga ring with a flex sensor and a Micro:bit in a tailor-made 3D-printed holder, demoing the XRCC Micro:bit connection feature.">
+  <meta name="theme-color" content="#0E1013">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/ringfit-BwcnZQwk.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/styles-UspHWgjf.js">
+  <link rel="modulepreload" crossorigin href="./assets/common-COAoZrYH.js">
+  <link rel="modulepreload" crossorigin href="./assets/rod-viewer-h-qmKOeT.js">
+  <link rel="modulepreload" crossorigin href="./assets/exploded-panel-CO-LdMNT.js">
+  <link rel="modulepreload" crossorigin href="./assets/youtube-Ct4H6zGs.js">
+  <link rel="stylesheet" crossorigin href="./assets/styles-3R5IExsG.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Samuel Ng, home">
+        <span class="brand-mark" aria-hidden="true">SN</span>
+        <span class="brand-name">SAMUEL NG</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="./#work" aria-current="page">01 WORK</a>
+        <a href="./#bench">02 TOOLBENCH</a>
+        <a href="./#path">03 PATH</a>
+        <a href="training.html">04 TRAINING</a>
+        <a class="nav-cta" href="./#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap crumbs">
+      <div><a href="./#work">WORK</a> / <span class="here">XR RINGFIT GAME</span></div>
+      <div class="facts"><span>JAN 2024</span><span>XRCC · MICRO:BIT · FLEX SENSOR · 3D PRINT</span></div>
+    </div>
+
+    <section class="project-hero">
+      <div class="wrap">
+        <figure class="project-shot">
+          <img src="./images/ringfit-card.jpg" alt="The RingFit controller: a black yoga ring with a dark grey 3D-printed holder on top, carrying a Micro:bit and a tracking marker tree, with the flex sensor wires taped along the ring." width="1280" height="800">
+        </figure>
+        <div class="project-info">
+          <span class="eyebrow">PROJECT</span>
+          <h1 class="display">XR RingFit Game</h1>
+          <p>An XR exercise game played by squeezing a real yoga ring. A flex sensor stick on the ring bends as you squeeze, and a Micro:bit sends the reading to XRCC over Bluetooth Low Energy. It was the demo for XRCC's first BLE feature, a Micro:bit connection, which I built from zero in one month.</p>
+          <dl class="specs">
+            <div><dt>Ring</dt><dd>Store-bought yoga ring</dd></div>
+            <div><dt>Sensor</dt><dd>Flex sensor stick along the ring</dd></div>
+            <div><dt>Board</dt><dd>BBC Micro:bit</dd></div>
+            <div><dt>Holder</dt><dd>Tailor-made 3D print, designed in Fusion 360</dd></div>
+            <div><dt>Link</dt><dd>Bluetooth Low Energy, through BleWinrtDll</dd></div>
+            <div><dt>Software</dt><dd>XRCC Micro:bit connection (Unity, C#)</dd></div>
+            <div><dt>Team</dt><dd>Me on BLE, Micro:bit and hardware; one partner on game logic and scene</dd></div>
+            <div><dt>Time</dt><dd>One month, from zero to a playable demo</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="demo">
+      <div class="wrap">
+        <div class="case-intro">
+          <div class="screen reveal" id="demo-video" style="background: #000; border: 1px solid var(--rule);"></div>
+          <div class="case-copy reveal">
+            <span class="eyebrow">01 / THE DEMO</span>
+            <h2 class="display" id="demo">Squeeze the ring to play</h2>
+            <p>The flex sensor changes its resistance as it bends. The Micro:bit reads that on an analog pin and streams it to XRCC over BLE, where the game turns each squeeze into an action in the XR scene.</p>
+            <p>The game was a demo of XRCC's Micro:bit connection feature, showing a real sensor driving an XR scene end to end. Once this one-device connection was stable, I extended it to several devices at once for the <a href="xr-fishing-game.html">XR Fishing Game</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="build">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">02 / THE CONTROLLER</span>
+            <h2 class="display draw reveal" id="build">A yoga ring and one small print</h2>
+          </div>
+        </div>
+        <div class="bag-app">
+          <div class="viewport bag-viewport" id="rf-viewer" role="img" aria-label="Interactive 3D model of the RingFit controller, which can be exploded into its parts.">
+            <div class="vp-label" aria-hidden="true"></div>
+            <div class="vp-controls">
+              <button type="button" class="btn btn-primary" id="rf-toggle">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>
+                <span>EXPLODE</span>
+              </button>
+              <span>drag to orbit · click a part</span>
+            </div>
+            <div class="vp-loading">LOADING MODEL</div>
+          </div>
+          <div class="case-copy">
+            <p>Most of the controller is off the shelf. The only custom part is the holder that clamps onto the top of the ring: it stands the Micro:bit upright, routes the sensor wires, and carries a tracker on its post.</p>
+            <ul class="bag-parts" id="rf-parts" aria-label="Controller parts"></ul>
+            <div class="selected-card bag-selected" aria-live="polite">
+              <span class="k">SELECTED</span>
+              <h3 id="rf-sel-name">Nothing selected</h3>
+              <p id="rf-sel-note">Pick a part to highlight it.</p>
+            </div>
+          </div>
+        </div>
+        <div class="case-intro">
+          <figure class="reveal" style="margin: 0;">
+            <img src="./images/ringfit-real.jpg" alt="The full RingFit controller held by one grip: a black yoga ring with red handles, the printed holder with the Micro:bit and marker tree on top, and the flex sensor wiring taped to the ring." loading="lazy" width="1152" height="1817" style="width: 100%; height: auto; border: 1px solid var(--rule);">
+          </figure>
+          <div class="case-copy reveal">
+            <p>The real build. The flex sensor stick is taped along the ring under the holder, and its wires run up into the holder to the Micro:bit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="month">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">03 / HOW IT WAS BUILT</span>
+            <h2 class="display draw reveal" id="month">A BLE feature in one month</h2>
+          </div>
+        </div>
+        <ol class="timeline">
+          <li class="reveal"><span class="tl-k">DEADLINE</span><h3>From zero, in a month</h3><p>There was nothing to start from: in one month I had to build XRCC's Micro:bit BLE connection and a playable demo project to show it.</p></li>
+          <li class="reveal"><span class="tl-k">LIBRARY</span><h3>BleWinrtDll</h3><p>Unity has no Bluetooth LE on Windows, so the feature sits on the open-source BleWinrtDll library. It didn't include everything XRCC needed, so most of the month went into working around that.</p></li>
+          <li class="reveal"><span class="tl-k">TEAM</span><h3>Two people, split by skill</h3><p>I owned everything Bluetooth, the Micro:bit and the hardware. My partner built the XRCC behaviour logic and the scene with its assets.</p></li>
+          <li class="reveal"><span class="tl-k">NEXT</span><h3>From one device to many</h3><p>The single Micro:bit connection became stable, and for the <a href="xr-fishing-game.html">XR Fishing Game</a> I extended it to connect several devices at once.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <a class="btn btn-ghost" href="./#work" style="margin: 56px 0;">All projects
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap" style="padding-top: 48px;">
+      <div class="footer-meta">
+        <a href="mailto:ngchakyui@gmail.com">ngchakyui@gmail.com</a>
+        <nav aria-label="Elsewhere">
+          <a href="https://github.com/ngkirto">GitHub</a>
+          <a href="https://sketchfab.com/chibi_chan">Sketchfab</a>
+          <a href="https://www.linkedin.com/in/chak-yui-ng-506090190/">LinkedIn</a>
+        </nav>
+      </div>
+      <p class="legal">© 2026 Samuel Ng (Ng Chak Yui). All rights reserved. The 3D models, renders and photos on this site are shown for viewing only and may not be downloaded, reused or 3D-printed without permission.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

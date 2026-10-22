@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XR Fishing Game · Samuel Ng</title>
+  <meta name="description" content="Exploded 3D view of the ESP32 fishing rod controller Samuel Ng designed in Fusion 360 for an XR fishing game in XRCC.">
+  <meta name="theme-color" content="#0E1013">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/fishing-CPPXwZLb.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/styles-UspHWgjf.js">
+  <link rel="modulepreload" crossorigin href="./assets/common-COAoZrYH.js">
+  <link rel="modulepreload" crossorigin href="./assets/rod-viewer-h-qmKOeT.js">
+  <link rel="modulepreload" crossorigin href="./assets/exploded-panel-CO-LdMNT.js">
+  <link rel="modulepreload" crossorigin href="./assets/youtube-Ct4H6zGs.js">
+  <link rel="stylesheet" crossorigin href="./assets/styles-3R5IExsG.css">
+</head>
+<body>
+  <a class="skip" href="#viewer">Skip to the 3D viewer</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Samuel Ng, home">
+        <span class="brand-mark" aria-hidden="true">SN</span>
+        <span class="brand-name">SAMUEL NG</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="./#work" aria-current="page">01 WORK</a>
+        <a href="./#bench">02 TOOLBENCH</a>
+        <a href="./#path">03 PATH</a>
+        <a href="training.html">04 TRAINING</a>
+        <a class="nav-cta" href="./#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap crumbs">
+      <div><a href="./#work">WORK</a> / <span class="here">XR FISHING GAME</span></div>
+      <div class="facts"><span>DEC 2025</span><span>XRCC · ESP32 · BLE · FUSION 360</span></div>
+    </div>
+
+    <div class="viewer-app">
+      <aside class="parts-panel" aria-label="Components">
+        <div class="panel-k">BROWSER · <span id="part-count">14</span> COMPONENTS</div>
+        <ul class="parts-list" id="parts-list"></ul>
+        <div class="selected-card" aria-live="polite">
+          <span class="k">SELECTED</span>
+          <h2 id="sel-name">Nothing selected</h2>
+          <p id="sel-note">Click a part in the list or in the viewport. The other parts turn see-through so you can find it inside the box.</p>
+          <span class="finish" id="sel-finish"></span>
+        </div>
+      </aside>
+
+      <div class="viewport" id="viewer" role="img" aria-label="Interactive 3D model of the fishing rod controller. Use the slider to explode it into its parts.">
+        <div class="vp-views" role="group" aria-label="Camera view">
+          <button type="button" data-view="iso" aria-pressed="true">ISO</button>
+          <button type="button" data-view="side" aria-pressed="false">SIDE</button>
+          <button type="button" data-view="top" aria-pressed="false">TOP</button>
+          <button type="button" data-view="tip" aria-pressed="false">TIP</button>
+        </div>
+        <div class="vp-hint">VIEWPORT · drag to orbit · scroll to zoom · click a part</div>
+        <div class="vp-readout" id="readout" aria-hidden="true"></div>
+        <div class="vp-label" aria-hidden="true"></div>
+        <div class="vp-controls">
+          <button type="button" class="btn btn-primary" id="toggle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>
+            <span>EXPLODE</span>
+          </button>
+          <button type="button" class="btn btn-ghost" id="cast">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20 20 4M20 4h-7M20 4v7"/></svg>
+            CAST
+          </button>
+          <label for="explode">
+            <span>ASSEMBLED</span>
+            <input id="explode" type="range" min="0" max="100" step="1" value="0">
+            <span>EXPLODED</span>
+          </label>
+          <span class="pct" id="pct">0%</span>
+        </div>
+        <div class="vp-loading">LOADING MODEL</div>
+      </div>
+
+      <aside class="info-panel" aria-label="About the project">
+        <span class="eyebrow">PROJECT</span>
+        <h1 class="display">XR Fishing Game</h1>
+        <p>The demo for XRCC's multi-device BLE feature: two ESP32 devices, the rod and a fishing bag, connected at the same time. Pick a difficulty on the bag, swing to cast, feel the bite, wind the crank to reel in.</p>
+        <dl class="specs">
+          <div><dt>Built for</dt><dd>XRCC multi-device BLE demo</dd></div>
+          <div><dt>My part</dt><dd>Hardware, 3D design, BLE backend</dd></div>
+          <div><dt>Time</dt><dd>About 1 month</dd></div>
+          <div><dt>Devices</dt><dd>Rod + fishing bag, 2 × ESP32</dd></div>
+          <div><dt>Sensors</dt><dd>MPU6050 · HW-040 encoder</dd></div>
+          <div><dt>Feedback</dt><dd>Coin vibration motor</dd></div>
+          <div><dt>Tracking</dt><dd>4-marker VR tracker on the tip</dd></div>
+          <div><dt>Housing</dt><dd>Fusion 360 · Bambu Lab X1 Carbon</dd></div>
+          <div><dt>Software</dt><dd>XRCC · Unity · C# · BleWinrtDll</dd></div>
+        </dl>
+        <a class="next" href="#demo">Watch the demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </a>
+      </aside>
+    </div>
+
+    <section class="section" id="demo">
+      <div class="wrap">
+        <div class="case-intro">
+          <div class="screen reveal" id="demo-video" style="background: #000; border: 1px solid var(--rule);"></div>
+          <div class="case-copy reveal">
+            <span class="eyebrow">01 / THE DEMO</span>
+            <h2 class="display">A rod that talks to XR</h2>
+            <p>XRCC is the XR creation platform I work on at Votanic. This game is the demo for connecting several microcontrollers to it over BLE at once: the rod you hold and a fishing bag with difficulty buttons, each with its own ESP32.</p>
+            <p>Each ESP32 reads its sensors or buttons and streams them to XRCC wirelessly, and the game reacts to both devices together.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Photos of the real rod" style="border-top: 0;">
+      <div class="wrap" style="padding-top: 0;">
+        <div class="photos">
+          <figure class="reveal">
+            <img src="./images/rod-real-crank.jpg" alt="The printed rod controller in hand: black electronics box labelled FISHING ROD CONTROLLER with a red status LED, a metal crank, and the telescoping rod with the VR tracker at the tip." loading="lazy" width="1280" height="720">
+            <figcaption>The finished controller: crank on the side, ESP32 status LED on top.</figcaption>
+          </figure>
+          <figure class="reveal">
+            <img src="./images/rod-real-tip.jpg" alt="The rod held out with the three telescoping sections extended and the four-marker VR tracker on the tip." loading="lazy" width="1280" height="720">
+            <figcaption>Rod fully extended, with the VR tracker on the tip.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="plays">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">02 / HOW IT PLAYS</span>
+            <h2 class="display draw reveal" id="plays">Choose, cast, wait, reel</h2>
+          </div>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-n">00</span>
+            <h3>Pick a difficulty</h3>
+            <p>Press easy, normal or hard on the fishing bag. It's the second BLE device, connected alongside the rod.</p>
+            <a class="step-show" href="#bag">See the bag in 3D</a>
+          </li>
+          <li class="step reveal">
+            <span class="step-n">01</span>
+            <h3>Cast</h3>
+            <p>Swing the rod. The MPU6050 motion sensor detects the cast.</p>
+            <button type="button" class="step-show" data-part="MPU6050">Show the MPU6050 in 3D</button>
+          </li>
+          <li class="step reveal">
+            <span class="step-n">02</span>
+            <h3>Feel the bite</h3>
+            <p>When a fish bites, the coin vibration motor in the box buzzes, so you feel the bite in your hand.</p>
+            <button type="button" class="step-show" data-part="CoinMotor">Show the coin motor in 3D</button>
+          </li>
+          <li class="step reveal">
+            <span class="step-n">03</span>
+            <h3>Reel it in</h3>
+            <p>Wind the crank. The HW-040 rotary encoder reads the reeling.</p>
+            <button type="button" class="step-show" data-part="HW040RotaryEncoder">Show the encoder in 3D</button>
+          </li>
+        </ol>
+        <p class="steps-note reveal">All the while, the four-marker tracker on the tip lets the VR tracking cameras follow where the rod is. <button type="button" class="step-show inline" data-part="VRTracker">Show the tracker</button></p>
+      </div>
+    </section>
+
+    <section class="section" id="bag" aria-labelledby="bag-h">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">03 / DEVICE 2</span>
+            <h2 class="display draw reveal" id="bag-h">The fishing bag</h2>
+          </div>
+        </div>
+        <div class="bag-app">
+          <div class="viewport bag-viewport" id="bag-viewer" role="img" aria-label="Interactive 3D model of the fishing bag: a triangular case with three difficulty buttons on an orange cover.">
+            <div class="vp-label" aria-hidden="true"></div>
+            <div class="vp-controls">
+              <button type="button" class="btn btn-primary" id="bag-toggle">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>
+                <span>EXPLODE</span>
+              </button>
+              <span>drag to orbit · click a part</span>
+            </div>
+            <div class="vp-loading">LOADING MODEL</div>
+          </div>
+          <div class="case-copy">
+            <p>The game is really a demo of XRCC talking to several microcontrollers at once. The bag is the second device: its own ESP32, a battery and three buttons for choosing the difficulty, worn on a belt and connected over BLE alongside the rod.</p>
+            <ul class="bag-parts" id="bag-parts" aria-label="Bag parts"></ul>
+            <div class="selected-card bag-selected" aria-live="polite">
+              <span class="k">SELECTED</span>
+              <h3 id="bag-sel-name">Nothing selected</h3>
+              <p id="bag-sel-note">Pick a part to highlight it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="month">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">04 / BUILD</span>
+            <h2 class="display draw reveal" id="month">One month, start to finish</h2>
+          </div>
+        </div>
+        <ol class="timeline">
+          <li class="reveal"><span class="tl-k">HARDWARE</span><h3>Parts from Taobao</h3><p>Bought the ESP32, MPU6050, HW-040 encoder and coin motor on Taobao.</p></li>
+          <li class="reveal"><span class="tl-k">DESIGN</span><h3>Fusion 360 housing</h3><p>Handle, electronics box and cover designed around the parts, with bosses for the boards and countersunk screws.</p></li>
+          <li class="reveal"><span class="tl-k">PRINT</span><h3>Four or five failed prints</h3><p>Printed on the Bambu Lab X1 Carbon. Four or five attempts failed before the final version.</p></li>
+          <li class="reveal"><span class="tl-k">DEMO</span><h3>Working product</h3><p>Assembled and connected to XRCC as the demo of the BLE feature.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="hard">
+      <div class="wrap">
+        <div class="case-intro">
+          <div class="case-copy reveal">
+            <span class="eyebrow">05 / THE HARD PART</span>
+            <h2 class="display draw" id="hard">BLE on Windows, the long way round</h2>
+          </div>
+          <div class="case-copy reveal">
+            <p>I also built the whole backend for the feature: XRCC (Unity, C#) connecting to and reading from both devices over BLE, using the open-source <a href="https://github.com/adabru/BleWinrtDll">BleWinrtDll</a> library. It builds on the single Micro:bit connection I wrote for the <a href="xr-ringfit-game.html">XR RingFit Game</a>: once that was stable, this project took it to several devices at once.</p>
+            <p>The library doesn't include several features this needed, so most of the time went into debugging. I dug through its GitHub issues and the fixes other developers had shared to add what it lacked, such as disconnecting from a device and checking whether a connection is still alive.</p>
+            <ul class="chips" aria-label="Highlights">
+              <li>Disconnect</li><li>Connection status checks</li><li>Multiple ESP32 and Micro:bit devices</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <a class="btn btn-ghost" href="./#work" style="margin: 56px 0;">All projects
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="wrap" style="padding-top: 48px;">
+      <div class="footer-meta">
+        <a href="mailto:ngchakyui@gmail.com">ngchakyui@gmail.com</a>
+        <nav aria-label="Elsewhere">
+          <a href="https://github.com/ngkirto">GitHub</a>
+          <a href="https://sketchfab.com/chibi_chan">Sketchfab</a>
+          <a href="https://www.linkedin.com/in/chak-yui-ng-506090190/">LinkedIn</a>
+        </nav>
+      </div>
+      <p class="legal">© 2026 Samuel Ng (Ng Chak Yui). All rights reserved. The 3D models, renders and photos on this site are shown for viewing only and may not be downloaded, reused or 3D-printed without permission.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
