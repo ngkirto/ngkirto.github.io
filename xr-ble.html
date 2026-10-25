@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XRCC BLE Layer · Samuel Ng</title>
+  <meta name="description" content="How XRCC talks to ESP32 and Micro:bit controllers over Bluetooth Low Energy: the multi-device layer I built on BleWinrtDll, where it hit its limits, and how the BLE 2 rewrite is structured.">
+  <meta name="theme-color" content="#0E1013">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/ble-R3m0-_tg.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/styles-rF4rCEnV.js">
+  <link rel="modulepreload" crossorigin href="./assets/common-Ct_0cvkn.js">
+  <link rel="stylesheet" crossorigin href="./assets/styles-Bzp0ZeXf.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Samuel Ng, home">
+        <span class="brand-mark" aria-hidden="true">SN</span>
+        <span class="brand-name">SAMUEL NG</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="./#work" aria-current="page">01 WORK</a>
+        <a href="./#bench">02 TOOLBENCH</a>
+        <a href="./#path">03 PATH</a>
+        <a href="training.html">04 TRAINING</a>
+        <a class="nav-cta" href="./#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap crumbs">
+      <div><a href="./#work">WORK</a> / <span class="here">XRCC BLE LAYER</span></div>
+      <div class="facts"><span>2024–2026</span><span>XRCC · UNITY · C# · C++/WINRT · BLE</span></div>
+    </div>
+
+    <section class="project-hero">
+      <div class="wrap">
+        <figure class="diagram">
+          <svg class="dg wide" viewBox="0 0 640 400" role="img" aria-label="Diagram: the fishing rod and fishing bag ESP32s, a Micro:bit and a phone each connect over Bluetooth Low Energy to XRCC, which runs in Unity.">
+            <defs><marker id="ah-hero" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker></defs>
+            <rect class="box hot" x="20" y="30" width="190" height="60"/><text class="t" x="115" y="53">Fishing rod</text><text class="s" x="115" y="73">ESP32 · MPU6050 · encoder</text>
+            <rect class="box hot" x="20" y="120" width="190" height="60"/><text class="t" x="115" y="143">Fishing bag</text><text class="s" x="115" y="163">ESP32 · 3 buttons</text>
+            <rect class="box" x="20" y="210" width="190" height="60"/><text class="t" x="115" y="233">Micro:bit</text><text class="s" x="115" y="253">RingFit flex sensor</text>
+            <rect class="box" x="20" y="300" width="190" height="60"/><text class="t" x="115" y="323">Phone</text><text class="s" x="115" y="343">BLE 2</text>
+            <path class="w hot" d="M210 60 C 320 60, 320 200, 420 200" marker-end="url(#ah-hero)"/>
+            <path class="w hot" d="M210 150 C 320 150, 320 200, 420 200" marker-end="url(#ah-hero)"/>
+            <path class="w" d="M210 240 C 320 240, 320 200, 420 200" marker-end="url(#ah-hero)"/>
+            <path class="w" d="M210 330 C 320 330, 320 200, 420 200" marker-end="url(#ah-hero)"/>
+            <text class="s" x="315" y="112">BLE</text>
+            <rect class="box cool" x="420" y="110" width="200" height="180"/>
+            <text class="t" x="520" y="170" style="font-size: 20px">XRCC</text>
+            <text class="s" x="520" y="198">Unity · C#</text>
+            <text class="s" x="520" y="222">device layer</text>
+            <text class="s" x="520" y="242">+ BLE runtime</text>
+          </svg>
+          <figcaption>Every controller on this site reaches XRCC through this one layer.</figcaption>
+        </figure>
+        <div class="project-info">
+          <span class="eyebrow">PROJECT</span>
+          <h1 class="display">XRCC BLE layer</h1>
+          <p>The software behind every hardware demo on this site. XRCC is the XR creation platform I work on at Votanic. I built the layer that lets it connect to several ESP32 and Micro:bit controllers at once over Bluetooth Low Energy, then hit the limits of the library underneath it, which led to a full rewrite: BLE 2.</p>
+          <dl class="specs">
+            <div><dt>v1</dt><dd>Unity C# on the open-source BleWinrtDll</dd></div>
+            <div><dt>v1 demos</dt><dd>XR Fishing Game · XR RingFit Game</dd></div>
+            <div><dt>v2 (BLE 2)</dt><dd>C++/WinRT DLL · Android Java · iOS Obj-C · C# package</dd></div>
+            <div><dt>AI</dt><dd>v2 rewritten with Claude, following the design of bleak</dd></div>
+            <div><dt>My part</dt><dd>The v1 layer; for v2 the root causes, the rules and the tests</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="layer">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">01 / THE DEVICE LAYER</span>
+            <h2 class="display draw reveal" id="layer">One interface for every controller</h2>
+          </div>
+        </div>
+        <div class="layer-grid">
+          <figure class="diagram reveal">
+            <svg class="dg wide" viewBox="0 0 720 440" role="img" aria-label="Diagram: XRCC behaviours talk to a device manager, which holds IMCUController instances. A BLE controller, a Micro:bit controller and a serial controller implement it. One BLE receive thread polls the library and dispatches data to the BLE controllers by device id.">
+              <defs><marker id="ah-layer" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker></defs>
+              <rect class="box" x="230" y="10" width="260" height="50"/><text class="t" x="360" y="35">XRCC behaviours</text>
+              <path class="w" d="M360 60 V 88" marker-end="url(#ah-layer)"/>
+              <rect class="box" x="230" y="90" width="260" height="50"/><text class="t" x="360" y="115">Device manager</text>
+              <path class="w" d="M360 140 V 168" marker-end="url(#ah-layer)"/>
+              <rect class="box hot" x="200" y="170" width="320" height="62"/><text class="t" x="360" y="192">IMCUController</text><text class="s" x="360" y="214">Connect · Send · OnReceived · Status</text>
+              <path class="w" d="M360 232 V 250 H 130 V 270"/>
+              <path class="w" d="M360 250 V 270"/>
+              <path class="w" d="M360 250 H 590 V 270"/>
+              <rect class="box" x="20" y="270" width="220" height="62"/><text class="t" x="130" y="292">BLE controller</text><text class="s" x="130" y="314">Nordic UART TX / RX</text>
+              <rect class="box" x="250" y="270" width="220" height="62"/><text class="t" x="360" y="292">Micro:bit controller</text><text class="s" x="360" y="314">same, TX / RX swapped</text>
+              <rect class="box" x="480" y="270" width="220" height="62"/><text class="t" x="590" y="292">Serial controller</text><text class="s" x="590" y="314">COM port · baud rate</text>
+              <rect class="box cool" x="20" y="370" width="450" height="62"/><text class="t" x="245" y="392">BLE receive thread</text><text class="s" x="245" y="414">polls the library · dispatch by device id</text>
+              <path class="w cool" d="M130 370 V 334" marker-end="url(#ah-layer)"/>
+              <path class="w cool" d="M360 370 V 334" marker-end="url(#ah-layer)"/>
+              <rect class="box" x="480" y="370" width="220" height="62"/><text class="t" x="590" y="401">Serial ports</text>
+              <path class="w" d="M590 370 V 334" marker-end="url(#ah-layer)"/>
+            </svg>
+          </figure>
+          <div class="case-copy reveal">
+            <p>XRCC behaviours don't know whether a value came over BLE or a USB cable. They talk to <code>IMCUController</code>, and each transport implements it. Adding a new kind of controller means adding one class, not changing the behaviours.</p>
+            <p>For several BLE devices at once, the DLL hands back data from every device through one poll call. A single receive thread is the only thing that polls it: it reads each packet, looks up the device it came from and passes it to that device's controller, so no controller can steal another's data.</p>
+            <p>The Micro:bit's UART service names TX and RX the opposite way round to Nordic's, so the Micro:bit controller swaps the two characteristics. Looking back, that's a configuration difference rather than a behaviour, and BLE 2 handles it as data instead of a subclass.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="limits">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">02 / WHERE V1 HIT ITS LIMITS</span>
+            <h2 class="display draw reveal" id="limits">The library underneath</h2>
+          </div>
+        </div>
+        <div class="split">
+          <figure class="diagram reveal">
+            <svg class="dg" viewBox="0 0 360 400" role="img" aria-label="v1: connection status is checked every frame; both devices feed one shared poll queue inside the open-source BleWinrtDll, with no device tag on service results.">
+              <defs><marker id="ah-v1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker></defs>
+              <text class="h" x="20" y="16">V1 · BLEWINRTDLL</text>
+              <rect class="box" x="20" y="34" width="320" height="58"/><text class="t" x="180" y="55">Unity main thread</text><text class="s" x="180" y="76">status checked every frame</text>
+              <path class="w" d="M180 92 V 126" marker-end="url(#ah-v1)"/>
+              <rect class="box bad" x="20" y="128" width="320" height="140"/>
+              <text class="s" x="180" y="150">BleWinrtDll</text>
+              <rect class="box hot" x="50" y="172" width="260" height="62"/><text class="t" x="180" y="194">one shared poll queue</text><text class="s" x="180" y="216">service results: no device tag</text>
+              <rect class="box" x="20" y="320" width="140" height="56"/><text class="t" x="90" y="348">Device A</text>
+              <rect class="box" x="200" y="320" width="140" height="56"/><text class="t" x="270" y="348">Device B</text>
+              <path class="w" d="M90 320 V 290 H 170 V 236" marker-end="url(#ah-v1)"/>
+              <path class="w" d="M270 320 V 290 H 190 V 236" marker-end="url(#ah-v1)"/>
+            </svg>
+          </figure>
+          <div class="case-copy reveal">
+            <p>v1 worked, and it still runs both demos. But BleWinrtDll, the open-source library underneath, was built for one device and short tests, and the more devices I added, the more of its limits showed:</p>
+            <ul class="bullets">
+              <li><b>Results carry no device.</b> The library returns service and characteristic results through one shared queue. Its connect call blocks, so devices connect one at a time and the results never mix, but connecting N devices takes N times as long and can never run in parallel.</li>
+              <li><b>Locks shared with its own handlers.</b> The library's connection-status check takes the same lock as its Bluetooth event handlers, so polling it often can deadlock against them while the app is stopping.</li>
+              <li><b>Errors aren't contained.</b> Some exceptions inside the library aren't caught at its boundary, so one failed call can't simply be reported back to the caller.</li>
+              <li><b>Windows only.</b> The library is built on WinRT, so there was no path for phones.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ble2">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">03 / BLE 2</span>
+            <h2 class="display draw reveal" id="ble2">A rewrite, rule by rule</h2>
+          </div>
+        </div>
+        <div class="split">
+          <div class="case-copy reveal">
+            <p>BLE 2 replaces the DLL and the C# wrapper. It follows the design of <a href="https://github.com/hbldh/bleak">bleak</a>, the open-source Python BLE library: every request returns an id, and its result comes back later as one event tagged with that id and the device it belongs to.</p>
+            <p>Each device gets its own worker thread that owns its Bluetooth objects. A single C# pump drains the event queue and hands results back to Unity's main thread, so nothing in Unity ever waits on the radio.</p>
+            <p>BLE is now its own Unity package rather than part of the microcontroller code, because phones connect to XRCC over BLE too. A single profile file generates the matching constants for C#, Kotlin and Swift.</p>
+          </div>
+          <figure class="diagram reveal">
+            <svg class="dg" viewBox="0 0 360 400" role="img" aria-label="v2: each device has its own worker strand; results go into one event queue tagged with device handle and request id; a C# pump thread delivers them to the Unity main thread.">
+              <defs><marker id="ah-v2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker></defs>
+              <text class="h cyan" x="20" y="16">V2 · BLE 2</text>
+              <rect class="box" x="20" y="34" width="320" height="50"/><text class="t" x="180" y="59">Unity main thread</text>
+              <path class="w" d="M180 108 V 86" marker-end="url(#ah-v2)"/>
+              <rect class="box" x="20" y="110" width="320" height="44"/><text class="t" x="180" y="132">C# pump thread</text>
+              <path class="w" d="M180 180 V 156" marker-end="url(#ah-v2)"/>
+              <rect class="box cool" x="20" y="182" width="320" height="58"/><text class="t" x="180" y="203">event queue</text><text class="s" x="180" y="224">tagged: device handle + request id</text>
+              <rect class="box" x="20" y="268" width="140" height="44"/><text class="t" x="90" y="290">strand A</text>
+              <rect class="box" x="200" y="268" width="140" height="44"/><text class="t" x="270" y="290">strand B</text>
+              <path class="w cool" d="M90 268 V 242" marker-end="url(#ah-v2)"/>
+              <path class="w cool" d="M270 268 V 242" marker-end="url(#ah-v2)"/>
+              <rect class="box" x="20" y="336" width="140" height="44"/><text class="t" x="90" y="358">Device A</text>
+              <rect class="box" x="200" y="336" width="140" height="44"/><text class="t" x="270" y="358">Device B</text>
+              <path class="w" d="M90 336 V 314" marker-end="url(#ah-v2)"/>
+              <path class="w" d="M270 336 V 314" marker-end="url(#ah-v2)"/>
+            </svg>
+          </figure>
+        </div>
+        <table class="rules reveal">
+          <thead><tr><th scope="col">BLEWINRTDLL LIMIT</th><th scope="col">BLE 2 RULE</th></tr></thead>
+          <tbody>
+            <tr><td>Calls marked non-blocking can still block the caller.</td><td>One worker thread per device. Every call posts its work and returns at once.</td></tr>
+            <tr><td>The status check shares a lock with the library's event handlers and can deadlock against them.</td><td>No lock is held across a Bluetooth call. Event handlers only copy data into the queue.</td></tr>
+            <tr><td>Some exceptions escape the library's boundary instead of becoming errors.</td><td>Every exported call and every handler is wrapped; a failure becomes a status code.</td></tr>
+            <tr><td>One service and characteristic queue for all devices.</td><td>Every result is an event tagged with its device and request id.</td></tr>
+            <tr><td>Its shutdown doesn't wait for work still in flight.</td><td>Shutdown cancels requests, releases each device on its own thread and joins it, with a deadline.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="tests">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">04 / TESTING</span>
+            <h2 class="display draw reveal" id="tests">A stress runner with written pass rules</h2>
+          </div>
+        </div>
+        <div class="case-copy reveal">
+          <p>BLE 2 comes with a .NET stress runner built from the same C# sources Unity uses. Each scenario has a pass rule written down before it runs, so "stable" means a number, not a feeling:</p>
+        </div>
+        <table class="rules reveal">
+          <thead><tr><th scope="col">SCENARIO</th><th scope="col">PASS RULE</th></tr></thead>
+          <tbody>
+            <tr><td>Self-test, adapter, scan, advertise, GATT server</td><td>Exact round trips for UUIDs, advertising data and frames; scanning and advertising start and stop cleanly.</td></tr>
+            <tr><td>Lifecycle × 40</td><td>Start everything, hammer it from another thread, shut down: every shutdown under 3.5 s, every request completes, no handle or thread growth.</td></tr>
+            <tr><td>Against a real peer: reconnect, 1-hour soak, echo, concurrent</td><td>≥ 95 % reconnects, ≥ 99 % echoes, echo p95 under 100 ms, nothing stuck.</td></tr>
+            <tr><td>XRCC ↔ phone, both discovery modes</td><td>Sensor rates at least 80 % of requested, motion gap p95 under 50 ms, no drops.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="ai">
+      <div class="wrap">
+        <div class="case-intro">
+          <div class="case-copy reveal">
+            <span class="eyebrow">05 / BUILT WITH AI</span>
+            <h2 class="display draw" id="ai">What I did, and what Claude did</h2>
+          </div>
+          <div class="case-copy reveal">
+            <p>v1 is my own code, written over two demos. For BLE 2, Claude wrote most of the new code, following bleak's design across Windows, Android and iOS.</p>
+            <p>My part was knowing what had to change: the library limits above come from running the demos and tracing each problem back to its cause. Those causes became the rules the rewrite had to follow, and the stress runner is how I check it really does.</p>
+            <ul class="chips" aria-label="Highlights">
+              <li>Multi-device dispatch</li><li>Root-cause list</li><li>Per-device threads</li><li>Stress tests</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <a class="btn btn-ghost" href="./#work" style="margin: 56px 0;">All projects
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap" style="padding-top: 48px;">
+      <div class="footer-meta">
+        <a href="mailto:ngchakyui@gmail.com">ngchakyui@gmail.com</a>
+        <nav aria-label="Elsewhere">
+          <a href="https://github.com/ngkirto">GitHub</a>
+          <a href="https://sketchfab.com/chibi_chan">Sketchfab</a>
+          <a href="https://www.linkedin.com/in/chak-yui-ng-506090190/">LinkedIn</a>
+        </nav>
+      </div>
+      <p class="legal">© 2026 Samuel Ng (Ng Chak Yui). All rights reserved. The 3D models, renders and photos on this site are shown for viewing only and may not be downloaded, reused or 3D-printed without permission.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

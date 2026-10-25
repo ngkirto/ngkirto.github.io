@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Potclean Clock · Samuel Ng</title>
+  <meta name="description" content="Potclean Clock: an ESP32-S3 e-paper desk clock on a perfboard, in a Blender-modelled case shaped like Potclean from Hunter × Hunter. A test of how fast AI can speed up a hardware project.">
+  <meta name="theme-color" content="#0E1013">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/potclean-Bi9tv1Vd.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/styles-rF4rCEnV.js">
+  <link rel="modulepreload" crossorigin href="./assets/three.module-Cg5gvieo.js">
+  <link rel="modulepreload" crossorigin href="./assets/rod-viewer-CyLGDX2h.js">
+  <link rel="modulepreload" crossorigin href="./assets/common-Ct_0cvkn.js">
+  <link rel="modulepreload" crossorigin href="./assets/exploded-panel-YqkuNnoZ.js">
+  <link rel="modulepreload" crossorigin href="./assets/youtube-Ct4H6zGs.js">
+  <link rel="stylesheet" crossorigin href="./assets/styles-Bzp0ZeXf.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Samuel Ng, home">
+        <span class="brand-mark" aria-hidden="true">SN</span>
+        <span class="brand-name">SAMUEL NG</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="./#work" aria-current="page">01 WORK</a>
+        <a href="./#bench">02 TOOLBENCH</a>
+        <a href="./#path">03 PATH</a>
+        <a href="training.html">04 TRAINING</a>
+        <a class="nav-cta" href="./#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap crumbs">
+      <div><a href="./#work">WORK</a> / <span class="here">POTCLEAN CLOCK</span></div>
+      <div class="facts"><span>2026</span><span>ESP32-S3 · E-PAPER · PERFBOARD · BLENDER</span></div>
+    </div>
+
+    <section class="project-hero">
+      <div class="wrap">
+        <figure class="project-shot">
+          <img src="./images/potclean-clock.jpg" alt="Render of the Potclean Clock: a white panda-angel figure with black ears, a blue outfit and a yellow scarf, with an e-paper screen in its forehead showing 1853." width="1280" height="800">
+        </figure>
+        <div class="project-info">
+          <span class="eyebrow">PROJECT</span>
+          <h1 class="display">Potclean Clock</h1>
+          <p>An e-paper desk clock built on a perfboard, inside a case shaped like Potclean from <i>Hunter × Hunter</i>. I made it to learn perfboard wiring and PCB drawing, and to test how far AI can speed up a hardware project.</p>
+          <dl class="specs">
+            <div><dt>Board</dt><dd>ESP32-S3 (N16R8) on a 16 × 27 perfboard</dd></div>
+            <div><dt>Screen</dt><dd>Waveshare 2.13″ e-paper V4</dd></div>
+            <div><dt>Time</dt><dd>DS3231 RTC · optional NTP</dd></div>
+            <div><dt>Sound</dt><dd>MAX98357A I2S amp · WAV ringtone</dd></div>
+            <div><dt>Controls</dt><dd>2 × KY-040 rotary encoders (the ears)</dd></div>
+            <div><dt>Power</dt><dd>LiPo · TP4056 · SX1308 · deep sleep</dd></div>
+            <div><dt>Case</dt><dd>Modelled in Blender, 3D-printed</dd></div>
+            <div><dt>PCB</dt><dd>In progress in EasyEDA</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="modes">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">01 / WHAT IT DOES</span>
+            <h2 class="display draw reveal" id="modes">Six modes, two knobs</h2>
+          </div>
+        </div>
+        <p class="lede reveal">The left ear picks a mode, the right ear changes values. The screen uses partial refresh, so the clock updates every minute without the full e-paper flash.</p>
+        <ul class="mode-grid">
+          <li class="reveal"><span class="mode-n">1</span><h3>Potclean</h3><p>The <i>Hunter × Hunter</i> interest joke: a number that grows ×1.1 every 10 seconds, with a ring each time. Try it below.</p></li>
+          <li class="reveal"><span class="mode-n">2</span><h3>Stopwatch</h3><p>Start, stop and reset from the right knob, refreshing every second.</p></li>
+          <li class="reveal"><span class="mode-n">3</span><h3>Timer</h3><p>Set minutes and seconds with the knob, pause and resume.</p></li>
+          <li class="reveal"><span class="mode-n">4</span><h3>Clock</h3><p>Big seven-segment HH:MM with date and alarm, kept by the DS3231 so it doesn't need WiFi.</p></li>
+          <li class="reveal"><span class="mode-n">5</span><h3>Volume</h3><p>Alarm loudness for the I2S amplifier and speaker.</p></li>
+          <li class="reveal"><span class="mode-n">6</span><h3>Setup</h3><p>The clock opens its own WiFi hotspot with a web page for WiFi, alarm, volume and time zone, plus one-tap NTP sync.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="interest">
+      <div class="wrap">
+        <div class="case-intro">
+          <div class="epaper reveal" aria-live="off">
+            <div class="ep-bar"><span>POTCLEAN</span><span>x1.1 / 10s</span></div>
+            <svg class="ep-digits" id="ep-digits" role="img" aria-label="Potclean value"></svg>
+            <div class="ep-bar ep-foot"><span>&lt;- Menu(hold)</span><span id="ep-next">next in 10s</span></div>
+            <span class="ep-progress" id="ep-progress"></span>
+          </div>
+          <div class="case-copy reveal">
+            <span class="eyebrow">02 / POTCLEAN MODE</span>
+            <h2 class="display" id="interest">Interest, every ten seconds</h2>
+            <p>Entering the mode picks a random number from 10 to 300. Every 10 seconds it becomes value × 1.1, rounded and at least one higher, until it hits 99,999,999, and the clock plays its ringtone each time. It's the character's ability from the anime, turned into a mode.</p>
+            <p>This one is running live in your browser with the same rule.</p>
+            <div class="ep-actions">
+              <button type="button" class="btn btn-primary" id="ep-tick">Apply interest now</button>
+              <button type="button" class="btn btn-ghost" id="ep-reset">New random start</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="hw">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">03 / HARDWARE</span>
+            <h2 class="display draw reveal" id="hw">Learning on a perfboard</h2>
+          </div>
+        </div>
+        <div class="case-intro">
+          <div class="case-copy reveal">
+            <p>The ESP32-S3 plugs into two 24-pin sockets on a 16 × 27 perfboard, so it can come out again, and the modules wire to it. I mapped every pin and rail before soldering: screen on SPI, the RTC on I2C, the amplifier on I2S, the encoders on 3.3 V only after one ran hot on 5 V.</p>
+            <p>Power runs from a 3.7 V LiPo through a TP4056 charger and an SX1308 boost to 5 V. In its ultra power-save mode the ESP32 deep-sleeps between minutes, stretching a 2000 mAh cell from about a day to a few weeks.</p>
+            <p>The perfboard circuit is now complete and running everything, including the alarm, which plays Potclean's own line from the anime through the I2S amp. Next step: the same circuit as a real PCB, which I'm drawing in EasyEDA now.</p>
+          </div>
+          <div class="photos photos-tall photos-3">
+            <figure class="reveal">
+              <div class="screen short" id="hw-video" style="background: #000; border: 1px solid var(--rule);"></div>
+              <figcaption>The finished perfboard circuit. The alarm is Potclean's voice line from the anime.</figcaption>
+            </figure>
+            <figure class="reveal">
+              <img src="./images/potclean-proto-clock.jpg" alt="The e-paper prototype in clock mode: date 2026-08-29 SAT, alarm 17:00 and the time 20:42 in seven-segment digits." loading="lazy" width="1148" height="2040">
+              <figcaption>Clock mode on the prototype.</figcaption>
+            </figure>
+            <figure class="reveal">
+              <img src="./images/potclean-proto-potclean.jpg" alt="The e-paper prototype in Potclean mode showing 1853, wired to a breadboard with jumper cables." loading="lazy" width="1148" height="2040">
+              <figcaption>Potclean mode at 1853.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="case">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">04 / THE CASE</span>
+            <h2 class="display draw reveal" id="case">Modelling an enclosure in Blender</h2>
+          </div>
+        </div>
+        <div class="bag-app">
+          <div class="viewport bag-viewport" id="pc-viewer" role="img" aria-label="Interactive 3D model of the Potclean case, which can be exploded into its printed parts.">
+            <div class="vp-label" aria-hidden="true"></div>
+            <div class="vp-controls">
+              <button type="button" class="btn btn-primary" id="pc-toggle">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>
+                <span>EXPLODE</span>
+              </button>
+              <span>drag to orbit · click a part</span>
+            </div>
+            <div class="vp-loading">LOADING MODEL</div>
+          </div>
+          <div class="case-copy">
+            <p>Every printed part of the case, taken apart: the head splits into front and back shells around the screen, the ears come off with the encoder inside, and the body, wings, hands, legs and scarf are separate prints.</p>
+            <ul class="bag-parts" id="pc-parts" aria-label="Case parts"></ul>
+            <div class="selected-card bag-selected" aria-live="polite">
+              <span class="k">SELECTED</span>
+              <h3 id="pc-sel-name">Nothing selected</h3>
+              <p id="pc-sel-note">Pick a part to highlight it.</p>
+            </div>
+          </div>
+        </div>
+        <div class="case-intro">
+          <div class="case-copy reveal">
+            <p>I modelled the case in Blender instead of Fusion 360. Blender is much freer: you can push every vertex and stack modifiers, which suits a round character figure. The ears hold the two encoders and the forehead frames the screen.</p>
+            <p>The hard part was that Blender isn't CAD. There's no step-by-step history to roll back, and dimensions have to be checked by hand, so every fit with the real parts (the screen window, the encoder shafts, the board inside) had to be confirmed manually.</p>
+          </div>
+          <div class="case-copy reveal">
+            <p>Without a history, every milestone became its own file. By the time it was ready to print there were <strong class="hl">24 versions</strong>:</p>
+            <ul class="file-chips" aria-label="Case file versions">
+              <li>POTCLEAN 1</li><li>… 2</li><li>… 3</li><li>… 4</li><li>… 5</li><li>… 6</li><li>potclean3</li><li>Bool</li><li>recover</li>
+              <li>big</li><li>big2</li><li>big3</li><li>big4</li><li>big5</li><li>big6</li><li>big7</li><li>big8</li><li>big9</li><li>big10</li><li>big11</li><li>big12</li><li>big13</li><li>Revamp</li><li>For Rendering</li>
+            </ul>
+            <p>The final model is split into printable parts: head front and back, screen glass and frame, ears, body front and back, wings, hands, legs, cheeks, eyes and the scarf.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="ai">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">05 / BUILT WITH AI</span>
+            <h2 class="display draw reveal" id="ai">How fast can AI push a hardware project?</h2>
+          </div>
+        </div>
+        <div class="case-intro">
+          <div class="case-copy reveal">
+            <p>Part of the point was to test AI as a partner for the knowledge I didn't have yet. I started from Waveshare's official 2.13″ e-paper library and demo, then built the rest of the firmware with AI support: the modes, partial refresh, the RTC driver, I2S audio, the encoder handling, the setup hotspot and deep sleep.</p>
+            <p>The setup web page was designed in Figma first, then embedded in the firmware so it works offline.</p>
+          </div>
+          <ul class="stat-list reveal">
+            <li><b>~5,900</b><span>lines of my own firmware, on top of the Waveshare library</span></li>
+            <li><b>35</b><span>commits from first e-paper test to the setup website</span></li>
+            <li><b>16 Jul → 30 Aug</b><span>2026, from the first commit to the current firmware</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <a class="btn btn-ghost" href="./#work" style="margin: 56px 0;">All projects
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap" style="padding-top: 48px;">
+      <div class="footer-meta">
+        <a href="mailto:ngchakyui@gmail.com">ngchakyui@gmail.com</a>
+        <nav aria-label="Elsewhere">
+          <a href="https://github.com/ngkirto">GitHub</a>
+          <a href="https://sketchfab.com/chibi_chan">Sketchfab</a>
+          <a href="https://www.linkedin.com/in/chak-yui-ng-506090190/">LinkedIn</a>
+        </nav>
+      </div>
+      <p class="legal">© 2026 Samuel Ng (Ng Chak Yui). All rights reserved. The 3D models, renders and photos on this site are shown for viewing only and may not be downloaded, reused or 3D-printed without permission.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

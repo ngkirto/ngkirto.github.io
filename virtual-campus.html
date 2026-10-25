@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Virtual school campuses · Samuel Ng</title>
+  <meta name="description" content="Walkable virtual campuses for Lam Tai Fai College and CCC Rotary Secondary School, modelled in Blender from on-site 360° photos, plus a 10-lesson Blender course built on the school's own rooms.">
+  <meta name="theme-color" content="#0E1013">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/campus-CbmSgASp.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/styles-rF4rCEnV.js">
+  <link rel="modulepreload" crossorigin href="./assets/three.module-Cg5gvieo.js">
+  <link rel="modulepreload" crossorigin href="./assets/common-Ct_0cvkn.js">
+  <link rel="stylesheet" crossorigin href="./assets/styles-Bzp0ZeXf.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Samuel Ng, home">
+        <span class="brand-mark" aria-hidden="true">SN</span>
+        <span class="brand-name">SAMUEL NG</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="./#work" aria-current="page">01 WORK</a>
+        <a href="./#bench">02 TOOLBENCH</a>
+        <a href="./#path">03 PATH</a>
+        <a href="training.html">04 TRAINING</a>
+        <a class="nav-cta" href="./#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap crumbs">
+      <div><a href="./#work">WORK</a> / <span class="here">VIRTUAL SCHOOL CAMPUSES</span></div>
+      <div class="facts"><span>2023–25</span><span>METAPRINT · BLENDER · SUBSTANCE DESIGNER · ONCYBER</span></div>
+    </div>
+
+    <section class="project-hero">
+      <div class="wrap">
+        <figure class="project-shot">
+          <img src="./images/ccc-metaverse.jpg" alt="Avatar standing on the playground of the virtual CCC Rotary Secondary School campus in Oncyber." width="1280" height="593">
+        </figure>
+        <div class="project-info">
+          <span class="eyebrow">PROJECT</span>
+          <h1 class="display">Virtual school campuses</h1>
+          <p>Walkable, low-poly copies of two Hong Kong secondary schools, built at Metaprint so students could explore their own campus as avatars in Oncyber. I modelled both on my own: CCC Rotary in a one-month sprint, then Lam Tai Fai College in my evenings and on annual leave after I started full-time work. Both were presented to the principals and department heads.</p>
+          <dl class="specs">
+            <div><dt>Schools</dt><dd>Lam Tai Fai College · CCC Rotary Secondary School</dd></div>
+            <div><dt>Modelling</dt><dd>Blender, every building and room by me</dd></div>
+            <div><dt>Reference</dt><dd>My own Insta360 photos and video, plus three floor plans</dd></div>
+            <div><dt>Textures</dt><dd>Brick, checker and plaster patterns made in Substance Designer</dd></div>
+            <div><dt>Platform</dt><dd>Oncyber, walkable with avatars</dd></div>
+            <div><dt>LTFC set</dt><dd>The school building plus nine special rooms</dd></div>
+          </dl>
+          <a class="btn btn-ghost" href="https://oncyber.io/spaces/0GXlNrppSVpb88FiTFuo" style="align-self: flex-start;">Walk the CCC campus in Oncyber
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="rooms">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">01 / LAM TAI FAI COLLEGE</span>
+            <h2 class="display draw reveal" id="rooms">Look around the school</h2>
+          </div>
+        </div>
+        <div class="room-head">
+          <p>For LTFC I modelled the whole school building and its special rooms: the classroom, new and old gyms, hall, library, lecture theatre, bio lab, fashion centre and Chinese cultural room. These are 360° renders of the final models, from two spots on the campus and three inside the library.</p>
+          <div class="room-tabs" role="tablist" aria-label="Viewpoints" id="spot-tabs">
+            <button type="button" class="course-tab" role="tab" id="spot-court" data-src="./images/campus/campus-court.jpg" aria-selected="true"><b>Basketball court</b></button>
+            <button type="button" class="course-tab" role="tab" id="spot-covered" data-src="./images/campus/campus-covered.jpg" aria-selected="false"><b>Covered playground</b></button>
+            <button type="button" class="course-tab" role="tab" id="spot-lounge" data-src="./images/campus/library-lounge.jpg" aria-selected="false"><b>Library lounge</b></button>
+            <button type="button" class="course-tab" role="tab" id="spot-shelves" data-src="./images/campus/library-shelves.jpg" aria-selected="false"><b>Library shelves</b></button>
+            <button type="button" class="course-tab" role="tab" id="spot-study" data-src="./images/campus/library-study.jpg" aria-selected="false"><b>Library study area</b></button>
+          </div>
+        </div>
+        <div class="viewport room-viewport" id="pano-viewer" role="img" aria-label="360° render of Lam Tai Fai College. Drag to look around.">
+          <div class="vp-controls">
+            <span>drag to look around · scroll or pinch to zoom</span>
+          </div>
+          <div class="vp-loading">LOADING VIEW</div>
+        </div>
+        <figure class="campus-aerial reveal">
+          <img src="./images/campus/campus-aerial.jpg" alt="Render of the Lam Tai Fai College model under a blue sky with clouds: the main building with the school name, the rooftop football pitch and the basketball courts." loading="lazy" width="1920" height="1080">
+          <figcaption>The whole campus from above, with the rooftop football pitch. Rendered in Blender Cycles from the model.</figcaption>
+        </figure>
+        <p class="note">The 3D models themselves aren't published here: they're client work and the layout of a real school, so the page shows rendered views only.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="built">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">02 / HOW IT WAS BUILT</span>
+            <h2 class="display draw reveal" id="built">Two schools, one modeller</h2>
+          </div>
+        </div>
+        <ol class="timeline">
+          <li class="reveal"><span class="tl-k">SOLO</span><h3>One modeller</h3><p>Every building, room and texture on both campuses was modelled by me.</p></li>
+          <li class="reveal"><span class="tl-k">CCC ROTARY</span><h3>A one-month deadline</h3><p>The whole campus exterior plus its special rooms, from first block-out to a walkable Oncyber space, in one month.</p></li>
+          <li class="reveal"><span class="tl-k">REFERENCE</span><h3>Working from 360° footage</h3><p>Reference material was limited at the start, so with the school's permission I visited with an Insta360 to capture 360° photos and video. Full floor plans weren't available; three arrived later in the project, so most of the campus was rebuilt from the 360° footage and my own judgement.</p></li>
+          <li class="reveal"><span class="tl-k">SCALE</span><h3>Keeping it consistent</h3><p>The hardest part was keeping every building and room at the same scale when each was measured from photos rather than drawings.</p></li>
+          <li class="reveal"><span class="tl-k">LTFC</span><h3>After hours</h3><p>Lam Tai Fai College came after I started full-time work, so I modelled it in the evenings and on annual leave.</p></li>
+          <li class="reveal"><span class="tl-k">TEXTURES</span><h3>Learning Substance Designer</h3><p>I learned Substance Designer to make the pattern textures: brick walls, checker tiles and plaster in the school's colours.</p></li>
+          <li class="reveal"><span class="tl-k">LIGHTING</span><h3>Why it isn't baked</h3><p>Oncyber's real-time lighting is simple, so I tried baking the lighting into the textures. My bakes came out with large black patches, so the final models use clean, unbaked textures. The views on this page are rendered in Blender Cycles instead.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section-alt" aria-labelledby="course">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">03 / THE COURSE</span>
+            <h2 class="display draw reveal" id="course">Ten lessons built on the school's own rooms</h2>
+          </div>
+        </div>
+        <p class="lede reveal">The campus models became teaching material. At Metaprint I wrote a 10-lesson Blender course for LTFC, with slides and starter files for every lesson, for a partner to teach. Students learn modelling by rebuilding and decorating rooms they use every day.</p>
+        <ul class="mode-grid">
+          <li class="reveal"><span class="mode-n">1</span><h3>Shape of Classroom</h3><p>Block out a real classroom from its measurements.</p></li>
+          <li class="reveal"><span class="mode-n">2</span><h3>Table and Chair</h3><p>Model the school furniture. <a href="training.html#blender">Watch the tutorials</a>.</p></li>
+          <li class="reveal"><span class="mode-n">3</span><h3>UV Mapping</h3><p>Unwrap the models so textures sit straight.</p></li>
+          <li class="reveal"><span class="mode-n">4</span><h3>Array</h3><p>Repeat desks, chairs and windows with the Array modifier.</p></li>
+          <li class="reveal"><span class="mode-n">5</span><h3>Metaverse</h3><p>Take the room into a walkable virtual space.</p></li>
+          <li class="reveal"><span class="mode-n">6</span><h3>Lighting</h3><p>Light the room for day and night.</p></li>
+          <li class="reveal"><span class="mode-n">7</span><h3>Rendering</h3><p>Set up cameras and render the scene.</p></li>
+          <li class="reveal"><span class="mode-n">8</span><h3>New Gym Decoration</h3><p>Decorate the model of the school's new gym.</p></li>
+          <li class="reveal"><span class="mode-n">9</span><h3>Procedural Texture and Baking</h3><p>Build materials from nodes, then bake them for the web.</p></li>
+          <li class="reveal"><span class="mode-n">10</span><h3>Bio Lab Decoration</h3><p>Fit out the biology lab model as a final project.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <a class="btn btn-ghost" href="./#work" style="margin: 56px 0;">All projects
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap" style="padding-top: 48px;">
+      <div class="footer-meta">
+        <a href="mailto:ngchakyui@gmail.com">ngchakyui@gmail.com</a>
+        <nav aria-label="Elsewhere">
+          <a href="https://github.com/ngkirto">GitHub</a>
+          <a href="https://sketchfab.com/chibi_chan">Sketchfab</a>
+          <a href="https://www.linkedin.com/in/chak-yui-ng-506090190/">LinkedIn</a>
+        </nav>
+      </div>
+      <p class="legal">© 2026 Samuel Ng (Ng Chak Yui). All rights reserved. The 3D models, renders and photos on this site are shown for viewing only and may not be downloaded, reused or 3D-printed without permission.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Samuel Ng · Hardware, XR and 3D</title>
+  <meta name="description" content="Samuel Ng (Ng Chak Yui), Hong Kong. Unity/C# developer who builds ESP32 and Micro:bit controllers for XR, and designs and 3D-prints their housings in Fusion 360.">
+  <meta name="theme-color" content="#0E1013">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="./assets/home-Dnktn-9G.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/styles-rF4rCEnV.js">
+  <link rel="modulepreload" crossorigin href="./assets/three.module-Cg5gvieo.js">
+  <link rel="modulepreload" crossorigin href="./assets/rod-viewer-CyLGDX2h.js">
+  <link rel="modulepreload" crossorigin href="./assets/common-Ct_0cvkn.js">
+  <link rel="stylesheet" crossorigin href="./assets/styles-Bzp0ZeXf.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./" aria-label="Samuel Ng, home">
+        <span class="brand-mark" aria-hidden="true">SN</span>
+        <span class="brand-name">SAMUEL NG</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#work">01 WORK</a>
+        <a href="#bench">02 TOOLBENCH</a>
+        <a href="#path">03 PATH</a>
+        <a href="training.html">04 TRAINING</a>
+        <a class="nav-cta" href="#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div class="hero-copy">
+          <div class="hero-tags">// UNITY · C# · ESP32 · MICRO:BIT · FUSION 360 · BLENDER</div>
+          <h1 class="display">Hardware, code and enclosure, <em>designed as one.</em></h1>
+          <p class="hero-lede">Software developer at Votanic, Hong Kong. I connect ESP32 and Micro:bit controllers to XR scenes over BLE and serial, then design and 3D-print their housings in Fusion 360.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="xr-fishing-game.html">XR Fishing Game
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#work">More projects
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="viewport" id="hero-viewport" role="img" aria-label="3D model of the XR fishing rod controller, shown exploded into its parts. Drag to rotate it; scroll the page to assemble it.">
+          <div class="vp-bar vp-top"><span>VIEWPORT · XR FISHING ROD</span>
+            <button type="button" class="vp-cast" id="hero-cast">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>
+              CAST THE ROD
+            </button>
+          </div>
+          <span class="vp-tick tl" aria-hidden="true"></span>
+          <span class="vp-tick br" aria-hidden="true"></span>
+          <div class="vp-label" aria-hidden="true"></div>
+          <div class="vp-bar vp-bottom">
+            <span>ASSEMBLED</span>
+            <span class="vp-meter"><span></span></span>
+            <span>EXPLODED</span>
+            <span class="hint">drag to rotate · scroll the page to assemble</span>
+          </div>
+          <div class="vp-loading">LOADING MODEL</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="In numbers">
+      <div class="wrap">
+        <div class="stat reveal"><b style="color: var(--orange)">20+</b><span>Unity UI panels and backends built for XRCC</span></div>
+        <div class="stat reveal"><b>150+</b><span>students taught across 30+ school workshop lessons, plus 30 hospital staff trained on XRCC</span></div>
+        <div class="stat reveal"><b>Multi</b><span>device BLE: several ESP32 and Micro:bit controllers driving one XR scene at once</span></div>
+        <div class="stat reveal"><b style="color: var(--cyan)">A</b><span>grade for the HKUST final-year project, mUShroom fanTasy</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">01 / WORK</span>
+            <h2 class="display draw reveal">Hardware, XR and 3D builds</h2>
+          </div>
+          <div class="filters" role="group" aria-label="Filter projects">
+            <button type="button" data-filter="all" aria-pressed="true">ALL</button>
+            <button type="button" data-filter="hardware" aria-pressed="false">HARDWARE</button>
+            <button type="button" data-filter="xr" aria-pressed="false">XR &amp; CODE</button>
+            <button type="button" data-filter="3d" aria-pressed="false">3D &amp; PRINT</button>
+            <button type="button" data-filter="video" aria-pressed="false">VIDEO</button>
+          </div>
+        </div>
+
+        <div class="cards">
+          <a class="card reveal" href="xr-fishing-game.html" data-tags="hardware xr 3d">
+            <div class="card-media">
+              <img src="./images/xr-fishing-duo.jpg" alt="Render of the two BLE devices: the fishing rod controller with its crank and VR tracker, and the triangular fishing bag with green, amber and red difficulty buttons." loading="lazy" width="1280" height="800">
+              <span class="badge">3D EXPLODED VIEW</span>
+            </div>
+            <div class="card-body">
+              <h3>XR Fishing Game</h3>
+              <p>The demo product for XRCC's BLE microcontroller feature: swing to cast, feel the bite, crank to reel in. I built the hardware, the Fusion 360 housing and the BLE backend in about a month.</p>
+              <span class="card-meta">DEC 2025 · XRCC · ESP32 · BLE</span>
+            </div>
+          </a>
+
+          <a class="card reveal" href="xr-ble.html" data-tags="xr">
+            <div class="card-media">
+              <svg class="dg" viewBox="0 0 640 400" role="img" aria-label="Diagram: two ESP32 controllers and a Micro:bit connect over BLE to XRCC.">
+                <defs><marker id="ah-card" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker></defs>
+                <rect class="box hot" x="60" y="70" width="180" height="60"/><text class="t" x="150" y="100">ESP32 · rod</text>
+                <rect class="box hot" x="60" y="170" width="180" height="60"/><text class="t" x="150" y="200">ESP32 · bag</text>
+                <rect class="box" x="60" y="270" width="180" height="60"/><text class="t" x="150" y="300">Micro:bit</text>
+                <path class="w hot" d="M240 100 C 320 100, 320 200, 400 200" marker-end="url(#ah-card)"/>
+                <path class="w hot" d="M240 200 H 400" marker-end="url(#ah-card)"/>
+                <path class="w" d="M240 300 C 320 300, 320 200, 400 200" marker-end="url(#ah-card)"/>
+                <rect class="box cool" x="400" y="130" width="180" height="140"/>
+                <text class="t" x="490" y="185" style="font-size: 22px">XRCC</text><text class="s" x="490" y="220">BLE layer</text>
+              </svg>
+              <span class="badge">ARCHITECTURE</span>
+            </div>
+            <div class="card-body">
+              <h3>XRCC BLE layer</h3>
+              <p>The software behind the hardware demos: one interface for every controller, several BLE devices at once, and BLE 2, a cross-platform rewrite.</p>
+              <span class="card-meta">2024–26 · UNITY · C# · C++/WINRT · BLE</span>
+            </div>
+          </a>
+
+          <a class="card reveal" href="potclean-clock.html" data-tags="hardware 3d">
+            <div class="card-media">
+              <img src="./images/potclean-clock.jpg" alt="Render of the Potclean Clock: a white panda-angel figure with an e-paper screen in its forehead showing 1853." loading="lazy" width="1280" height="800">
+              <span class="badge">BLENDER CASE</span>
+            </div>
+            <div class="card-body">
+              <h3>Potclean Clock</h3>
+              <p>An e-paper desk clock on a perfboard, in a Blender-modelled case shaped like Potclean from Hunter × Hunter. Six modes, two knobs for ears, and a test of how far AI can speed up hardware.</p>
+              <span class="card-meta">2026 · ESP32-S3 · E-PAPER · PERFBOARD</span>
+            </div>
+          </a>
+
+          <a class="card reveal" href="xr-ringfit-game.html" data-tags="hardware xr 3d">
+            <div class="card-media">
+              <img src="./images/ringfit-card.jpg" alt="The RingFit controller: a 3D-printed holder on a yoga ring, carrying a Micro:bit and a tracking marker tree." loading="lazy" width="1280" height="800">
+              <span class="badge">3D EXPLODED VIEW</span>
+            </div>
+            <div class="card-body">
+              <h3>XR RingFit Game</h3>
+              <p>Squeeze a real yoga ring to play: a flex sensor and a Micro:bit in a tailor-made 3D-printed holder, demoing XRCC's Micro:bit connection.</p>
+              <span class="card-meta">JAN 2024 · XRCC · MICRO:BIT · FLEX SENSOR</span>
+            </div>
+          </a>
+
+          <a class="card reveal" href="virtual-campus.html" data-tags="xr 3d">
+            <div class="card-media">
+              <img src="./images/ccc-metaverse.jpg" alt="Avatar standing on the playground of the virtual CCC Rotary Secondary School campus in Oncyber." loading="lazy" width="1280" height="593">
+              <span class="badge">360° VIEWS + COURSE</span>
+            </div>
+            <div class="card-body">
+              <h3>Virtual school campuses</h3>
+              <p>Two school campuses modelled single-handed in Blender from my own 360° captures, one of them in a month, then turned into a 10-lesson Blender course. Look around in 360°.</p>
+              <span class="card-meta">2023–25 · METAPRINT · BLENDER · ONCYBER</span>
+            </div>
+          </a>
+
+          <a class="card reveal" href="https://youtu.be/18Vxjw0NpSg" data-tags="hardware 3d video">
+            <div class="card-media">
+              <img src="./images/cable-car.jpg" alt="The STEM cable car kit: two laser-cut plywood towers with pulleys on a plywood base, a cotton-thread loop between them carrying small wooden cabins, and a battery pack and motor on the left tower." loading="lazy" width="624" height="350">
+              <span class="badge">VIDEO</span>
+            </div>
+            <div class="card-body">
+              <h3>STEM cable car kit</h3>
+              <p>Workshop kit for Ngong Ping 360: laser-cut plywood towers, 3D-printed cabins and a motor-driven thread loop. I took it from design to a batch order: revised it with the client over a month to fit the budget, sourced the laser-cut parts in bulk, and quality-checked every motor before delivery.</p>
+              <span class="card-meta">2023 · METAPRINT · LASER CUTTING · 3D PRINT · MOTOR</span>
+            </div>
+          </a>
+
+          <a class="card reveal" href="https://youtu.be/kaq0LQ05Gx8" data-tags="xr 3d video">
+            <div class="card-media">
+              <img src="./images/mushroom-fantasy.jpg" alt="Still from mUShroom fanTasy, a Unity game set on the HKUST campus." loading="lazy" width="985" height="616">
+              <span class="badge">TRAILER</span>
+            </div>
+            <div class="card-body">
+              <h3>mUShroom fanTasy</h3>
+              <p>Grade A final-year project, team of 4, 8 months: a Unity game set in walkable models of the HKUST Piazza, Atrium and Science corridors. I built the map, plus the enemies' meshes, shading, rigging and animation.</p>
+              <span class="card-meta">2022–23 · UNITY · BLENDER · VROID</span>
+            </div>
+          </a>
+
+          <a class="card reveal" href="https://a360.co/3YToZX5" data-tags="3d">
+            <div class="card-media">
+              <img src="./images/fusion-music-box.jpg" alt="Render of the sci-fi music box: a glowing PCB case wrapped in ribbons of sheet music under a starry sky." loading="lazy" width="1280" height="720">
+              <span class="badge">FUSION 360 MODEL</span>
+            </div>
+            <div class="card-body">
+              <h3>Sci-fi Music Box</h3>
+              <p>A tailor-made PCB case with sci-fi details. Opens the model in the Fusion 360 web viewer.</p>
+              <span class="card-meta">2023 · FUSION 360 · ILLUSTRATOR · BLENDER</span>
+            </div>
+          </a>
+
+          <a class="card reveal" href="https://a360.co/3NgAtQD" data-tags="3d hardware">
+            <div class="card-media">
+              <img src="./images/fusion-ai-car.jpg" alt="Fusion 360 render of the sci-fi AI car: a grey angular body on four yellow-rimmed wheels." loading="lazy" width="928" height="556">
+              <span class="badge">FUSION 360 MODEL</span>
+            </div>
+            <div class="card-body">
+              <h3>Sci-fi AI Car</h3>
+              <p>A tailor-made body for an AI car, with sci-fi panel lines and vents. Opens the model in the Fusion 360 web viewer.</p>
+              <span class="card-meta">2023 · FUSION 360 · ILLUSTRATOR</span>
+            </div>
+          </a>
+
+          <a class="card reveal" href="https://a360.co/3FApvlE" data-tags="3d">
+            <div class="card-media">
+              <img src="./images/fusion-table.jpg" alt="The customised table built from aluminium extrusion and wood." loading="lazy" width="1280" height="963">
+              <span class="badge">FUSION 360 MODEL</span>
+            </div>
+            <div class="card-body">
+              <h3>Customised Table</h3>
+              <p>A mobile, detachable and combinable table, designed in Fusion 360 and built from aluminium extrusion and wood.</p>
+              <span class="card-meta">2023 · FUSION 360 · ALUMINIUM EXTRUSION · POWER TOOLS</span>
+            </div>
+          </a>
+
+          <article class="card reveal" data-tags="3d">
+            <div class="card-media">
+              <img src="./images/mtr-earphone-shells.jpg" alt="Render of sixteen earphone cases in MTR station colours, each with a tiled pattern and a station name such as Kowloon Tong, Mong Kok and Choi Hung." loading="lazy" width="1280" height="800">
+            </div>
+            <div class="card-body">
+              <h3>MTR earphone shells</h3>
+              <p>MTR-themed earphone shells, designed, printed and spray-painted: 100 made, about 40 sold at HKD 139.</p>
+              <span class="card-meta">2023 · METAPRINT · DLP PRINT · SPRAY PAINT</span>
+            </div>
+          </article>
+
+          <a class="card reveal" href="https://youtu.be/OrnF5YrHCMs" data-tags="3d video">
+            <div class="card-media">
+              <img src="./images/garden-cemetery.jpg" alt="Blender render of a green garden cemetery for pets." loading="lazy" width="795" height="416">
+              <span class="badge">VIDEO</span>
+            </div>
+            <div class="card-body">
+              <h3>3D Garden Cemetery</h3>
+              <p>A Blender visualisation of an environmental garden cemetery, giving pets a calm, open space after death.</p>
+              <span class="card-meta">2022–23 · METAMORY · BLENDER</span>
+            </div>
+          </a>
+
+          <a class="card reveal" href="https://youtu.be/6oIl41U3ubA" data-tags="xr video">
+            <div class="card-media">
+              <img src="./images/drum-machine.jpg" alt="The web drum machine: a drum pad grid next to an animated 3D drum." loading="lazy" width="1280" height="601">
+              <span class="badge">VIDEO</span>
+            </div>
+            <div class="card-body">
+              <h3>Drum Machine</h3>
+              <p>Make beats by clicking the drum pad or using keyboard shortcuts; the 3D drum animates with each pitch.</p>
+              <span class="card-meta">HTML · THREE.JS · MIDI.JS</span>
+            </div>
+          </a>
+
+          <article class="card reveal" data-tags="video">
+            <div class="card-media">
+              <img src="https://i.ytimg.com/vi/_gcv_XP0pCM/hqdefault.jpg" alt="" loading="lazy" width="480" height="360">
+              <span class="badge">VIDEO EDITING</span>
+            </div>
+            <div class="card-body">
+              <h3>Video projects</h3>
+              <p>Course projects in editing, remixing and AI-assisted music video.</p>
+              <ul class="card-links">
+                <li><a href="https://youtu.be/VHXkMMe0yvE">Music-video edit</a></li>
+                <li><a href="https://youtu.be/vtznSjkKG_0">Dodgeball remix</a></li>
+                <li><a href="https://youtu.be/_gcv_XP0pCM">AI lyrics and lip-sync</a></li>
+              </ul>
+              <span class="card-meta">HKUST COMP4441 · PREMIERE PRO · AUDITION · BLENDER</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="bench">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">02 / TOOLBENCH</span>
+            <h2 class="display draw reveal">From firmware to finished part</h2>
+          </div>
+        </div>
+        <div class="bench">
+          <div class="bench-group reveal">
+            <h3>Code</h3>
+            <div class="chips"><span>Unity</span><span>C#</span><span>XRCC</span><span>JavaScript</span><span>three.js</span><span>Vite</span><span>HTTP APIs</span><span>Ready Player Me</span><span>Sketchfab</span><span>PC/XR networking</span><span>Git</span></div>
+          </div>
+          <div class="bench-group reveal">
+            <h3>Hardware</h3>
+            <div class="chips"><span>ESP32</span><span>Micro:bit</span><span>Arduino</span><span>BLE</span><span>Serial</span><span>Perfboard</span><span>E-paper</span><span>RTC</span><span>I2S audio</span><span>Rotary encoders</span></div>
+          </div>
+          <div class="bench-group reveal">
+            <h3>3D &amp; fabrication</h3>
+            <div class="chips"><span>Fusion 360</span><span>Blender</span><span>VRoid Studio</span><span>FDM</span><span>DLP</span><span>Laser cutting</span><span>AutoCAD</span><span>Illustrator</span><span>Sanding &amp; spray finishing</span></div>
+          </div>
+          <div class="bench-group reveal">
+            <h3>Media &amp; teaching</h3>
+            <div class="chips"><span>Premiere Pro</span><span>Audition</span><span>Oncyber</span><span>Workshops</span><span>Cantonese · English · Mandarin</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="path">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">03 / PATH</span>
+            <h2 class="display draw reveal">Where I've worked</h2>
+          </div>
+        </div>
+        <div class="path">
+          <div class="path-row reveal">
+            <time>DEC 2024 – NOW</time>
+            <div><h3>Software Developer <span>· Votanic</span></h3><p>Unity and C# on XRCC, the company's XR creation platform.</p>
+              <ul class="path-points">
+                <li>20+ UI panels and their backends, built with the UX/UI designer and keeping views and logic separate: asset import, Sketchfab login, Ready Player Me over HTTP, PC/XR networking, keyboard, dialogs, and microcontroller setup and debug.</li>
+                <li>A pooled, recycled list view used by 8+ panels, and a custom backend for the open-source SimpleFileBrowser.</li>
+                <li>The BLE device layer that lets several ESP32 and Micro:bit controllers drive XR scenes at once, and its cross-platform rewrite, <a href="xr-ble.html">BLE 2</a>.</li>
+                <li>Contributions to XRCC's behaviour, upgrade, history and remote-trigger systems.</li>
+                <li>Five beginner tutorials that take non-technical users from zero to building in XRCC within a month. I learned XRCC from scratch myself, built each project from its behaviours and existing features with my own 3D models and materials (so there are no copyright issues), wrote step-by-step documentation for every tutorial, and helped update the XRCC tutorial website.</li>
+                <li>A 100-slide XRCC walkthrough for about 30 non-technical hospital staff, and two internal microcontroller labs for colleagues.</li>
+              </ul></div>
+          </div>
+          <div class="path-row reveal">
+            <time>JUN 2023 – OCT 2024</time>
+            <div><h3>Co-Founder <span>· Metaprint</span></h3><p>Virtual campuses, a large-format DLP print service, and tailor-made 3D and XR workshops for schools.</p>
+              <ul class="path-points">
+                <li>Walkable Oncyber campuses for two secondary schools, modelled from my own 360° photos and presented to principals and department heads.</li>
+                <li>Ran a large-format DLP printer for client orders for about two years.</li>
+                <li>30+ workshop lessons for 150+ students, each designed around the school's equipment and goals and ending with take-home student work.</li>
+                <li>A 5-lesson Among Us workshop for Form 1–2 students: meshing, shading, rigging and posing a character in Blender, then making it printable. Each student took home their own print and painted it with acrylics.</li>
+                <li>A STEM cable car workshop kit for Ngong Ping 360: laser-cut plywood towers and 3D-printed cabins on a cotton-thread loop, driven by a small motor and battery. Over a month of client emails I revised the design several times to fit the budget, set up bulk orders for the laser-cut wood from Taobao, and quality-checked and reworked every motor before delivery; it also taught me how much packaging shapes a product.</li>
+                <li>A Fusion 360 NFC mahjong workshop for 6 HKUST students, and a 10-lesson campus-modelling pack for a partner to teach.</li>
+              </ul></div>
+          </div>
+          <div class="path-row reveal">
+            <time>OCT 2022 – MAR 2023</time>
+            <div><h3>3D Engineer Intern <span>· Metamory</span></h3><p>Blender visualisation for clients and tailor-made prints with sanding and spray painting.</p></div>
+          </div>
+          <div class="path-row reveal">
+            <time>SEP 2020 – MAY 2022</time>
+            <div><h3>Student Technical Advisor <span>· HKUST</span></h3><p>Engineering workshops, power-tool safety videos, and AutoCAD layouts for laser-cut decorations. Taught myself Blender, then assisted a 4-day Blender workshop.</p></div>
+          </div>
+          <div class="path-row reveal">
+            <time>2019 – 2023</time>
+            <div><h3>BEng Computer Engineering <span>· HKUST</span></h3><p>Dean of Engineering Scholarship (HKD 20,000). Final-year project graded A.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-label="Training videos">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">04 / TRAINING</span>
+          <h2 class="display">Tutorials I made for STEM classes</h2>
+          <p>A 10-lesson Blender course built on a real school's rooms, a character motion-capture course with its own tutor training, and the power-tool safety videos I shot at HKUST.</p>
+        </div>
+        <a class="btn btn-dark" href="training.html">Open the lessons
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="wrap">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <span class="eyebrow">05 / CONTACT</span>
+        <h2 class="display">Let's build<br>something.</h2>
+        <a class="mail" href="mailto:ngchakyui@gmail.com">ngchakyui@gmail.com</a>
+      </div>
+      <div class="footer-meta">
+        <span>Hong Kong · BEng Computer Engineering, HKUST</span>
+        <nav aria-label="Elsewhere">
+          <a href="https://github.com/ngkirto">GitHub</a>
+          <a href="https://sketchfab.com/chibi_chan">Sketchfab</a>
+          <a href="https://www.linkedin.com/in/chak-yui-ng-506090190/">LinkedIn</a>
+        </nav>
+      </div>
+      <p class="legal">© 2026 Samuel Ng (Ng Chak Yui). All rights reserved. The 3D models, renders and photos on this site are shown for viewing only and may not be downloaded, reused or 3D-printed without permission.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
